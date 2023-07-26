@@ -1,0 +1,49 @@
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr class="col">
+          <th>Ledger Id</th>
+          <th>Ledger Created Date</th>
+          <th>Total Loan Amount</th>
+          <th>Payable Amount with Interest</th>
+          <th>Loan Tenure(Years)</th>
+          <th>Mothly EMI</th>
+          <th>Loan EMI Start Date</th>
+          <th>Loan EMI End Date</th>
+          <th>Amount Paid Till Date</th>
+          <th>Remaining Amount</th>
+          <th>Next EMI Date Start</th>
+          <th>Next EMI Date End</th>
+          <th>Current EMI Paid Date</th>
+          <th>Current EMI Paid Mode</th>
+          <th>Previous EMI Status</th>
+          <th>Current EMI Status</th>
+          <th>Total No. of EMIs</th>
+          <th>No. of EMIs Paid</th>
+          <th>Remaining EMI</th>
+        </tr>
+    </thead>
+        <tbody>
+            <tr *ngFor="let l of ledger">
+                <td>{{l.ledgerId}}</td>
+                <td>{{l.ledgerCreatedDate}}</td>
+                <td>{{l.payableAmountwithInterest}}</td>
+                <td>{{l.loanTenureInYears}}</td>
+                <td>{{l.monthlyEMI}}</td>
+                <td>{{l.loanEmiStartDate}}</td>
+                <td>{{l.loanEmiStartDate}}</td>
+                <td>{{l.amountPaidTillDate}}</td>
+                <td>{{l.remainingAmount}}</td>
+                <td>{{l.nextEmiDateStart}}</td>
+                <td>{{l.nextEmiDateEnd}}</td>
+                <td>{{l.currentEmiPaidDate}}</td>
+                <td>{{l.currentEmiPaidMode}}</td>
+                <td>{{l.previousEmiStatus}}</td>
+                <td>{{l.currentMonthEmiStatus}}</td>
+                <td>{{l.totalNoOfEmi}}</td>
+                <td>{{l.noOfEmisPaid}}</td>
+                <td>{{l.remainingEmi}}</td>
+            </tr>
+        </tbody>
+      </table>    
+</div>

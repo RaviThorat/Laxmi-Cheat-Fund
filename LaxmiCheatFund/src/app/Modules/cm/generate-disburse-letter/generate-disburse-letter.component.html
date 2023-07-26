@@ -1,0 +1,44 @@
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th> Custmer Id</th>
+            <th> Loan No.</th>
+            <th> Account Holder Name</th>
+            <th> Email</th>
+            <th> Agreement Date</th>
+            <th> Bank Name</th>
+            <th> Bank Branch</th>
+            <th> Bank Account No.</th>
+            <th> IFSC Code</th>
+            <th> Account Type</th>
+            <th> Transfer Amount</th>
+            <th> Amount Paid Date</th>
+            <th> Customer Status</th>
+            <th> Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of custData">
+            <td>{{c.customerId}}</td>
+            <td>{{c.loandisbursement.loanNo}}</td>
+            <td>{{c.loandisbursement.accountHolderFirstName}}&nbsp;{{c.loandisbursement.accountHolderMiddleName}}&nbsp;{{c.loandisbursement.accountHolderLastName}}</td>
+            <td>{{c.sanctionletter.email}}</td>
+            <td>{{c.loandisbursement.agreementDate}}</td>
+            <td>{{c.loandisbursement.bankName}}</td>
+            <td>{{c.loandisbursement.bankBranchName}}</td>
+            <td>{{c.loandisbursement.accountNumber}}</td>
+            <td>{{c.loandisbursement.ifscCode}}</td>
+            <td>{{c.loandisbursement.accountType}}</td>
+            <td>{{c.loandisbursement.transferAmount}}</td>
+            <td>{{c.loandisbursement.amountPaidDate}}</td>
+            <td>{{c.customerStatus}}</td>
+            <td>
+                <div class="col-md-4 m-0 p-0">
+                    <input class="btn btn-warning" type="submit" (click)="generateDisbursePdf(c)"
+                    value="Generate PDF"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table> 
+</div>

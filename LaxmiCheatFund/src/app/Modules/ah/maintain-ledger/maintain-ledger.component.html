@@ -1,0 +1,29 @@
+<div *ngIf="n==1" class="container">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th> Custmer Id</th>
+            <th> Full Name</th>
+            <th> Mobile No.</th>
+            <th> Email</th>
+            <th> Disbursed Amount</th>
+            <th> Customer Status</th>
+            <th> Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of custData">
+            <td>{{c.customerId}}</td>
+            <td>{{c.customerFirstName}}&nbsp;{{c.customerMiddleName}}&nbsp;{{c.customerMiddleName}}</td>
+            <td>{{c.customerMobileNumber}}</td>
+            <td>{{c.customerEmail}}</td>
+            <td>{{c.loandisbursement.transferAmount}}</td>
+            <td>{{c.customerStatus}}</td>
+            <td>
+                <div class="col-md-4 m-0 p-0"><input class="btn btn-warning" type="submit" mat-button (click)="openPopupForm(c)"
+                    value="View Ledger"></div> <!-- mat-button (click)="openPopupForm()" -->
+            </td>
+          </tr>
+        </tbody>
+      </table> 
+</div>

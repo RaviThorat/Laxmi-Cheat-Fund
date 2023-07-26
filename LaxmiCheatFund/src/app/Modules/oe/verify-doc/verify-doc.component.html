@@ -1,0 +1,160 @@
+<div *ngIf="x==1" class="col-md-12">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th> Custmer Id</th>
+        <th> First Name</th>
+        <th> Middle Name</th>
+        <th> Last Name</th>
+        <th> Date of Birth</th>
+        <th> Age</th>
+        <th> Gender</th>
+        <th> Email</th>
+        <th> Mobile No.</th>
+        <th> Addititonal Mobile No.</th>
+        <th> Customer Status</th>
+        <th> Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of custData">
+        <td>{{c.customerId}}</td>
+        <td>{{c.customerFirstName}}</td>
+        <td>{{c.customerMiddleName}}</td>
+        <td>{{c.customerLastName}}</td>
+        <td>{{c.customerDateOfBirth}}</td>
+        <td>{{c.customerAge}}</td>
+        <td>{{c.customerGender}}</td>
+        <td>{{c.customerEmail}}</td>
+        <td>{{c.customerMobileNumber}}</td>
+        <td>{{c.customerAdditionalMobileNumber}}</td>
+        <td>{{c.customerStatus}}</td>
+        <td>
+          <div class="row">
+            <!-- <div class="col-md-12"> -->
+            <div class="col-md-4 m-0 p-0"><input class="btn btn-warning" type="submit" (click)="onVerify(c)"
+                value="Verify"></div> <!-- mat-button (click)="openPopupForm()" -->
+            <!-- </div> -->
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="x==5" class="col-md-12">
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table mt-3">
+        <div>
+          <tr>
+            <td>Custmer Id</td>
+            <td>{{custDataSingle.customerId}}</td>
+          </tr>
+          <tr>
+            <td>First Name</td>
+            <td>{{custDataSingle.customerFirstName}}</td>
+          </tr>
+          <tr>
+            <td>Middle Name</td>
+            <td>{{custDataSingle.customerMiddleName}}</td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td>{{custDataSingle.customerLastName}}</td>
+          </tr>
+          <tr>
+            <td>Date of Birth</td>
+            <td>{{custDataSingle.customerDateOfBirth}}</td>
+          </tr>
+          <tr>
+            <td>Age</td>
+            <td>{{custDataSingle.customerAge}}</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>{{custDataSingle.customerGender}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{custDataSingle.customerEmail}}</td>
+          </tr>
+          <tr>
+            <td>Mobile No.</td>
+            <td>{{custDataSingle.customerMobileNumber}}</td>
+          </tr>
+          <tr>
+            <td>Addititonal Mobile No.</td>
+            <td>{{custDataSingle.customerAdditionalMobileNumber}}</td>
+          </tr>
+        </div>
+      </table>
+    </div>
+    <div class="col-md-6">
+    <form [formGroup]="custDataSingle.customerVerification"></form>
+        <div *ngIf="step==1">
+          <h2 style="text-align: center;color:brown;">Passport Photo </h2>
+          <hr>
+          <img [src]="'data:image/jpeg;base64,'+ doc.allpersonalDoc.photo" width="550" height="400" />
+        </div>
+
+        <div *ngIf="step==2">
+          <h2 style="text-align: center;color:brown;">Signature </h2>
+          <hr>
+          <img [src]="'data:image/jpeg;base64,'+ doc.allpersonalDoc.signature" width="550" height="400" />
+        </div>
+
+        <div *ngIf="step==3">
+          <h2 style="text-align: center;color:brown;">Address Proof </h2>
+          <hr>
+          <img [src]="'data:image/jpeg;base64,'+ doc.allpersonalDoc.addressProof" width="550" height="400" />
+        </div>
+
+        <div *ngIf="step==4">
+          <h2 style="text-align: center;color:brown;">PAN Card </h2>
+          <hr>
+          <img [src]="'data:image/jpeg;base64,'+ doc.allpersonalDoc.panCard" width="550" height="400" />
+        </div>
+
+        <div *ngIf="step==5">
+          <h2 style="text-align: center;color:brown;">Addhar Card </h2>
+          <hr>
+          <img [src]="'data:image/jpeg;base64,'+ doc.allpersonalDoc.addharCard" width="550" height="400" />
+        </div>
+
+        <div *ngIf="step==6">
+          <h2 style="text-align: center;color:brown;">Income Tax </h2>
+          <hr>
+          <img [src]="'data:image/jpeg;base64,'+ doc.allpersonalDoc.incomeTax" width="550" height="400" />
+        </div>
+
+        <div *ngIf="step==7">
+          <h2 style="text-align: center;color:brown;">Mortgage Property Proof </h2>
+          <hr>
+          <img [src]="'data:image/jpeg;base64,'+ doc.mortgageDetails.mortgagePropertyProof" width="550" height="400" />
+        </div>
+
+        <div *ngIf="step==8">
+          <h2 style="text-align: center;color:brown;">Salary Slip </h2>
+          <hr>
+          <img [src]="'data:image/jpeg;base64,'+ doc.profession.professionsalaryslips" width="550" height="400" />
+        </div>
+
+        <div *ngIf="step==9">
+          <h2 style="text-align: center;color:brown;">Property Document </h2>
+          <hr>
+          <img [src]="'data:image/jpeg;base64,'+ doc.propertyinfo.propertyDocuments" width="550" height="400" />
+        </div>
+        
+        <div class="text-center">
+          <input class="btn btn-success" type="button" (click)="prev()" value="Prev">&nbsp;&nbsp;
+          <input class="btn btn-primary" type="button" (click)="next()" [disabled]="step==9" value="Next">&nbsp;&nbsp;
+          <button class="btn btn-warning" *ngIf="step==9"
+            (click)="verifyAllDoc(custDataSingle.customerId)">Verify</button>
+        </div>
+        
+   
+    </div>
+
+  </div>
+</div>

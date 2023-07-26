@@ -1,0 +1,36 @@
+
+<table class="table">
+    
+    <thead class="thead-dark">
+
+      <tr>
+        <th> Eid</th>
+        <th> FirstName</th>
+        <th> LastName</th>
+        <th> Age</th>
+        <th> Email</th>
+        <th> MobileNo</th>
+        <th> PanCardNo</th>
+        <th> Status</th>
+        <th> Cibil Score</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let e of enqData">
+            <td>{{e.eid}}</td>
+            <td>{{e.firstName}}</td>
+            <td>{{e.lastName}}</td>
+            <td>{{e.age}}</td>
+            <td>{{e.email}}</td>
+            <td>{{e.mobileNo}}</td>
+            <td>{{e.panCardNo}}</td>
+            <td>{{e.status}}</td>
+            <td>{{e.cibilScore}}</td>
+            <td>
+                <input class="btn btn-warning" type="submit" value="Check Cibil" (click)="checkCibil(e.eid)">
+            </td>
+        </tr>
+    </tbody>
+  </table>

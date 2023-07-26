@@ -1,0 +1,58 @@
+<div *ngIf="n==1" class="container">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th> Custmer Id</th>
+            <th> Full Name</th>
+            <th> Mobile No.</th>
+            <th> Email</th>
+            <th> Disbursed Amount</th>
+            <th> Customer Status</th>
+            <th> Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of custData">
+            <td>{{c.customerId}}</td>
+            <td>{{c.customerFirstName}}&nbsp;{{c.customerMiddleName}}&nbsp;{{c.customerMiddleName}}</td>
+            <td>{{c.customerMobileNumber}}</td>
+            <td>{{c.customerEmail}}</td>
+            <td>{{c.loandisbursement.transferAmount}}</td>
+            <td>{{c.customerStatus}}</td>
+            <td>
+                <div class="col-md-4 m-0 p-0"><input class="btn btn-warning" type="submit" mat-button (click)="createLedger(c.customerId)"
+                    value="Create Ledger"></div> <!-- mat-button (click)="openPopupForm()" -->
+            </td>
+          </tr>
+        </tbody>
+      </table> 
+</div>
+<!-- <div *ngIf="n==2">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-md-offset-3 sanction fieldset">
+
+            <form [formGroup]="sanctionletter" id="msform">
+                <h1 class="fs-title">Fill Sanction Details</h1>
+                <div class="input textarea">
+                <input class="input textarea" type="text" formControlName="sanctionletterapplicantFirstName" placeholder="First Name" />
+                <input class="input textarea" type="text" formControlName="applicantMiddleName" placeholder="Middle Name" />
+                <input class="input textarea" type="text" formControlName="applicantLastName" placeholder="Last Name" />
+                <input class="input textarea" type="number" formControlName="mobileNo" placeholder="Mobile No." />
+                <input class="input textarea" type="email" formControlName="email" placeholder="Email" />
+                <input class="input textarea" type="number" formControlName="loanAmtSanctioned" placeholder="Loan Amount Sanction" />
+                <input class="input textarea" type="number" formControlName="rateOfInterest" placeholder="Rate of Interest" />
+                <input class="input textarea" type="number" formControlName="loanTenureInYears" placeholder="Loan Tenure (Years)" />
+                <input class="input textarea" type="text" formControlName="modeOfPayment" placeholder="Mode of Payment" />
+
+                <br>
+                <input (click)="back()" type="button" name="next" class="next action-button"
+                value="Back" />&nbsp;&nbsp;
+                <input (click)="submit(san.customerId)" type="button" name="next" class="next action-button"
+                    value="Submit" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div> -->

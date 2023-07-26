@@ -1,0 +1,776 @@
+<!-- <p>apply-for-loan works!</p> -->
+<!-- apply-for-loan-component.html -->
+<!-- <form [formGroup]="applyForm">
+    <mat-form-field>
+      <input matInput formControlName="name" placeholder="Name">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput formControlName="email" placeholder="Email">
+    </mat-form-field> -->
+
+<!-- Add more form fields as needed -->
+
+<!-- <button mat-button (click)="submitForm()">Submit</button>
+</form> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-md-offset-3">
+            <form [formGroup]="personalDetails">
+                <!-- progressbar -->
+                <!-- <ul id="progressbar">
+                    <li [ngClass]="step>=1 ? 'active' : 'inactive'">Personal Details</li>
+                    <li [ngClass]="step>=2 ? 'active' : 'inactive'">Educational Information</li>
+                    <li [ngClass]="step==3 ? 'active' : 'inactive'">All Personal Documents</li>
+                    <li [ngClass]="step==3 ? 'active' : 'inactive'">Family Dependent Info</li>
+                    <li [ngClass]="step==3 ? 'active' : 'inactive'">Customer Address</li>
+                    <li [ngClass]="step==3 ? 'active' : 'inactive'">Mortgage Details</li>
+                    <li [ngClass]="step==3 ? 'active' : 'inactive'">Profession</li>
+                    <li [ngClass]="step==3 ? 'active' : 'inactive'">Account Details</li>
+                    <li [ngClass]="step==3 ? 'active' : 'inactive'">Property Information</li>
+                    <li [ngClass]="step==3 ? 'active' : 'inactive'">Gurantor Details</li>
+                </ul> -->
+                <!-- fieldsets -->
+
+                <div *ngIf="step == 1">
+                    <h2 class="fs-title">Personal Details</h2>
+                    <!-- <mat-form-field> -->
+                        <input type="text" formControlName="customerFirstName" placeholder="First Name" />
+                        <!-- <input matInput type="text" formControlName="customerFirstName"  [ngClass]="{ 'is-invalid': personal_step && personal.customerFirstName.errors }" placeholder="First Name"/>
+                        <div *ngIf="personal_step && personalDetails.controls.customerFirstName.errors">
+                            <div *ngIf="personal.customerFirstName.errors?.required">First Name is required</div>
+                        </div> -->
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                        <input type="text" formControlName="customerMiddleName" placeholder="Middle Name" />
+                        <!-- <input matInput type="text" formControlName="customerMiddleName"  [ngClass]="{ 'is-invalid': personal_step && personal.customerMiddleName.errors }" placeholder="Middle Name"/>
+                    <div *ngIf="personal_step && personalDetails.controls.customerMiddleName.errors">
+                        <div *ngIf="personal.customerMiddleName.errors?.required">Middle Name is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                        <input  type="text" formControlName="customerLastName" placeholder="Last Name" />
+                        <!-- <input matInput type="text" formControlName="customerLastName"  [ngClass]="{ 'is-invalid': personal_step && personal.customerLastName.errors }" placeholder="Last Name"/>
+                    <div *ngIf="personal_step && personalDetails.controls.customerLastName.errors">
+                        <div *ngIf="personal.customerLastName.errors?.required">Last Name is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field>
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>                       -->
+
+                    <!-- <mat-form-field> -->
+                        <input type="date" formControlName="customerDateOfBirth" placeholder="Date of Birth" />
+                        <!-- <input matInput type="text" formControlName="customerDateOfBirth"  [ngClass]="{ 'is-invalid': personal_step && personal.customerDateOfBirth.errors }" placeholder="Date of Birth"/>
+                    <div *ngIf="personal_step && personalDetails.controls.customerDateOfBirth.errors">
+                        <div *ngIf="personal.customerDateOfBirth.errors?.required">Date of birth is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                        <input matInput type="number" formControlName="customerAge" placeholder="Age" />
+                        <!-- <input matInput type="number" formControlName="customerAge"  [ngClass]="{ 'is-invalid': personal_step && personal.customerAge.errors }" placeholder="Age"/>
+                    <div *ngIf="personal_step && personalDetails.controls.customerAge.errors">
+                        <div *ngIf="personal.customerAge.errors?.required">Age is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                        <input matInput type="text" formControlName="customerGender" placeholder="Gender" />
+                        <!-- <div *ngIf="personal_step && personalDetails.controls.customerGender.errors">
+                        <div *ngIf="personal.customerGender.errors?.required">Gender is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                        <input matInput type="email" formControlName="customerEmail" placeholder="Email" />
+                        <!-- <div *ngIf="personal_step && personalDetails.controls.customerEmail.errors">
+                        <div *ngIf="personal.customerEmail.errors?.required">Email is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                        <input type="number" formControlName="customerMobileNumber" placeholder="Phone" />
+                        <!-- <div *ngIf="personal_step && personalDetails.controls.customerMobileNumber.errors">
+                         <div *ngIf="personal.customerMobileNumber.errors?.required">Phone no. is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                        <input type="number" formControlName="customerAdditionalMobileNumber"
+                            placeholder="Additional Phone" />
+                        <!-- <div *ngIf="personal_step && personalDetails.controls.customerAdditionalMobileNumber.errors">
+                         <div *ngIf="personal.customerAdditionalMobileNumber.errors?.required">Additional Phone no. is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                        <input type="number" formControlName="customerTotalLoanRequired"
+                            placeholder="Loan Required" />
+                        <!-- <div *ngIf="personal_step && personalDetails.controls.customerTotalLoanRequired.errors">
+                         <div *ngIf="personal.customerTotalLoanRequired.errors?.required">Total Loan Required filed is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+                    <br>
+                    <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+                </div>
+
+                <div *ngIf="step == 2">
+                    <div formGroupName="educationalInfo">
+                        <h2 class="fs-title">Educational Details</h2>
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="educationType"
+                                placeholder="Highest Qualification" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> -->
+                        <!-- </mat-form-field> -->
+                    </div>
+                    <br>
+                    <input (click)="previous()" type="button" name="previous"
+                        class="previous action-button-previous" value="Previous" />
+                    <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+                </div>
+
+                <div *ngIf="step == 3">
+                    <div >
+                        <h2 class="fs-title">All Personal Documents</h2>
+                        <!-- <mat-form-field> -->
+                            <label>Address Proof</label>
+                            <!-- <mat-label>Address Proof</mat-label> -->
+                            <input type="file"  (change)="onaddressProof($event)" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <!-- <mat-label>PAN Card</mat-label> -->
+                            <label>PAN Card</label>
+                            <input type="file" (change)="onpanCard($event)" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> formControlName="panCard"  -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <!-- <mat-label>Income Tax</mat-label> -->
+                            <label>Income Tax</label>
+                            <input type="file" (change)="onIncomeTax($event)" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> formControlName="incomeTax" -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <!-- <mat-label>Addhar Card</mat-label> -->
+                            <label>Addhar Card</label>
+                            <input type="file" (change)="onaddharCard($event)" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> formControlName="addharCard" -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <!-- <mat-label>Photo</mat-label> -->
+                            <label>Photo</label>
+                            <input type="file" (change)="onphoto($event)" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> formControlName="photo" -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <!-- <mat-label>Signature</mat-label> -->
+                            <label>Signature</label>
+                            <input type="file" (change)="onsignature($event)" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> formControlName="signature" -->
+                        <!-- </mat-form-field> -->
+                    </div>
+                    <br>
+                    <input (click)="previous()" type="button" name="previous"
+                        class="previous action-button-previous" value="Previous" />
+                    <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+                </div>
+
+                <div *ngIf="step == 4">
+                    <div formGroupName="familydependentInfo">
+                        <h2 class="fs-title">Family Dependent Info</h2>
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="fatherName" placeholder="Father Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="motherName" placeholder="Mother Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="spouseName" placeholder="Spouse Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="maritalStatus" placeholder="Marital Status" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="number" formControlName="familyIncome" placeholder="Family Income" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                            <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                        </div> -->
+                        <!-- </mat-form-field> -->
+
+                    </div>
+                    <br>
+                    <input (click)="previous()" type="button" name="previous"
+                        class="previous action-button-previous" value="Previous" />
+                    <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+                </div>
+
+                <div *ngIf="step == 5">
+                    <div class="row" formGroupName="customerAddress">
+                        <h2 class="fs-title">Customer Address</h2>
+                        <div class="col-md-6" formGroupName="permanentAddress">
+                            <h2 class="fs-title">Permanent Address</h2>
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="areaname" placeholder="Area Name" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                        <div *ngIf="address.city.errors?.required">City is required</div>
+                    </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="cityname" placeholder="City" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                        <div *ngIf="address.city.errors?.required">City is required</div>
+                    </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="district" placeholder="District" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                        <div *ngIf="address.city.errors?.required">City is required</div>
+                    </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="state" placeholder="State" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                        <div *ngIf="address.city.errors?.required">City is required</div>
+                    </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="number" formControlName="pincode" placeholder="Pincode" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                        <div *ngIf="address.city.errors?.required">City is required</div>
+                    </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="number" formControlName="houseNumber"
+                                    placeholder="House Number" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                        <div *ngIf="address.city.errors?.required">City is required</div>
+                    </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="landmark" placeholder="Landmark" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                        <div *ngIf="address.city.errors?.required">City is required</div>
+                    </div> -->
+                            <!-- </mat-form-field> -->
+                        </div>
+
+                        <div class="col-md-6" formGroupName="localAddress">
+                            <h2 class="fs-title">Local Address</h2>
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="areaname" placeholder="Area Name" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                        </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="cityname" placeholder="City" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                        </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="district" placeholder="District" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                        </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="state" placeholder="State" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                        </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="number" formControlName="pincode" placeholder="Pincode" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                        </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="number" formControlName="houseNumber"
+                                    placeholder="House Number" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                        </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="landmark" placeholder="Landmark" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                        </div> -->
+                            <!-- </mat-form-field> -->
+                        </div>
+                    </div>
+                    <br>
+                    <input (click)="previous()" type="button" name="previous"
+                        class="previous action-button-previous" value="Previous" />
+                    <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+
+                </div>
+
+                <div *ngIf="step == 6">
+                    <div formGroupName="mortgageDetails">
+                        <h2 class="fs-title">Mortgage Details</h2>
+                        <!-- <mat-form-field> -->
+                            <input type="number" formControlName="mortgagePropertyValue"
+                                placeholder="Mortgage Property Value" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                        <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required
+                        </div> -->
+                    
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                        <!-- <mat-label>Property Proof</mat-label> -->
+                    <input type="file" (change)="onmortgagePropertyProof($event)" />
+                    <!-- <div *ngIf="education_step && educationalDetails.controls.university.errors">
+                        <div *ngIf="education.university.errors?.required">University is required</div>
+                    </div> formControlName="mortgagePropertyProof" -->
+                    <label class="text-center">Mortgage Property Proof</label>
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                    <input type="text" formControlName="mortgagePropertyType" placeholder="Mortgage Property Type" />
+                    <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                        <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                    </div> -->
+
+
+                    <!-- </mat-form-field> -->
+
+                    <!-- <mat-form-field> -->
+                    <input type="number" formControlName="mortgageLoanOnProperty"
+                        placeholder="Mortgage Loan On Property" />
+                    <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                        <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                    </div> -->
+                    <!-- </mat-form-field> -->
+                    <br>
+                    <input (click)="previous()" type="button" name="previous"
+                        class="previous action-button-previous" value="Previous" />
+                        <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+                    </div>
+                
+                </div>
+
+                <div *ngIf="step == 7">
+                    <div formGroupName="profession">
+                        <h2 class="fs-title">Profession Details</h2>
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="professiontype"
+                            placeholder="Profession Type" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="number" formControlName="professionsalary"
+                            placeholder="Profession Salary" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="professionsalaryType"
+                            placeholder="Profession Salary Type" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="professionExperience"
+                            placeholder="Profession Experience" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="professionDesignation"
+                            placeholder="Profession Designation" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <!-- <mat-label>Salary Slip</mat-label> -->
+                            <input  type="file" 
+                            (change)="onprofessionsalaryslips($event)" />
+                            <label class="text-center">Salary Slip</label>
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> formControlName="professionsalaryslips"-->
+                        <!-- </mat-form-field> -->
+                        <br>
+                        <input (click)="previous()" type="button" name="previous"
+                        class="previous action-button-previous" value="Previous" />
+                        <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+                    </div>
+
+                </div>
+
+                <div *ngIf="step == 8">
+                    <div formGroupName="cbscore">
+                        <h2 class="fs-title">Cibil Score</h2>
+                        <!-- <mat-form-field> -->
+                            <input matInput type="number" formControlName="cibilScore"
+                            placeholder="Cibil Score" />
+                        <!-- </mat-form-field> -->
+                        <br>
+                        <input (click)="previous()" type="button" name="previous"
+                        class="previous action-button-previous" value="Previous" />
+                        <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+                    </div>
+                </div>
+
+                <div *ngIf="step == 9">
+                    <div formGroupName="accountdetails">
+                    <h2 class="fs-title">Account Details</h2>
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="accounType"
+                            placeholder="Account Type" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="bankName"
+                            placeholder="Bank Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="bankBranchName"
+                            placeholder="Bank Branch Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="number" formControlName="accountNumber"
+                            placeholder="Account Number" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="accountHolderFirstName"
+                            placeholder="First Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="accountHolderMiddleName"
+                            placeholder="Middle Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="accountHolderLastName"
+                            placeholder="Last Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="accountIfscNumber"
+                            placeholder="IFSC Number" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="number" formControlName="accountBalance"
+                            placeholder="Account Balance" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+                        <br>
+                        <input (click)="previous()" type="button" name="previous"
+                        class="previous action-button-previous" value="Previous" />
+                        <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+                    </div>
+                </div>
+
+                <div *ngIf="step == 10">
+                    <div formGroupName="propertyinfo">
+                    <h2 class="fs-title">Property Details</h2>
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="propertyType"
+                            placeholder="Property Type" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="propertyArea"
+                            placeholder="Property Area" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="number" formControlName="propertyPrice"
+                            placeholder="Property Price" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <!-- <mat-label>Property Document</mat-label> -->
+                            <input type="file" (change)="onpropertyDocuments($event)" />
+                            <label class="text-center">Property Documents</label>
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <div formGroupName="propertyAddress">
+                            <h2 class="fs-title">Property Address</h2>
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="areaname" placeholder="Area Name" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                                <div *ngIf="address.city.errors?.required">City is required</div>
+                                </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="cityname" placeholder="City" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                                <div *ngIf="address.city.errors?.required">City is required</div>
+                                </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="district" placeholder="District" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                                <div *ngIf="address.city.errors?.required">City is required</div>
+                                </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="state" placeholder="State" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                                <div *ngIf="address.city.errors?.required">City is required</div>
+                                </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="number" formControlName="pincode" placeholder="Pincode" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                                <div *ngIf="address.city.errors?.required">City is required</div>
+                                </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="number" formControlName="houseNumber"
+                                    placeholder="House Number" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                                <div *ngIf="address.city.errors?.required">City is required</div>
+                                </div> -->
+                            <!-- </mat-form-field> -->
+
+                            <!-- <mat-form-field> -->
+                                <input type="text" formControlName="landmark" placeholder="Landmark" />
+                                <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                                <div *ngIf="address.city.errors?.required">City is required</div>
+                                </div> -->
+                            <!-- </mat-form-field> -->
+                        </div>
+                        <br>
+                        <input (click)="previous()" type="button" name="previous"
+                        class="previous action-button-previous" value="Previous" />
+                        <input (click)="next()" type="button" name="next" class="next action-button"
+                        value="Next" />
+                    </div>
+                </div>
+
+                <div *ngIf="step == 11">
+                    <div formGroupName="gurantordetails">
+                    <h2 class="fs-title">Guarantor Details</h2>
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="guarantorFirstName"
+                            placeholder="Guarantor First Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="guarantorMiddleName"
+                            placeholder="Guarantor Middle Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="guarantorLastName"
+                            placeholder="Guarantor Last Name" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input  type="number" formControlName="guarantorMobileNumber"
+                            placeholder="Guarantor Mobile Number" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="number" formControlName="guarantorAdharCardNo"
+                            placeholder="Guarantor Adhar Card No" />
+                            <!-- <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                                <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="areaname" placeholder="Area Name" />
+                            <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="cityname" placeholder="City" />
+                            <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="district" placeholder="District" />
+                            <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="text" formControlName="state" placeholder="State" />
+                            <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="number" formControlName="pincode" placeholder="Pincode" />
+                            <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input type="number" formControlName="houseNumber"
+                                placeholder="House Number" />
+                            <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+
+                        <!-- <mat-form-field> -->
+                            <input matInput type="text" formControlName="landmark" placeholder="Landmark" />
+                            <!-- <div *ngIf="address_step && addressDetails.controls.city.errors">
+                            <div *ngIf="address.city.errors?.required">City is required</div>
+                            </div> -->
+                        <!-- </mat-form-field> -->
+                        <br>
+                        <input (click)="previous()" type="button" name="previous" class="previous action-button-previous"
+                        value="Previous" />
+                        <input (click)="submit()" type="submit" name="submit" value="Submit" />
+                    </div>
+                </div>
+        </form>
+
+    </div>
+    
+</div>

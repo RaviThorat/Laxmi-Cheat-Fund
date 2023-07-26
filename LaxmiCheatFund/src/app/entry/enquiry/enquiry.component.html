@@ -1,0 +1,57 @@
+
+<section class="vh-150 gradient-custom">
+    <div class="container py-6 ">
+      <div class="row justify-content-center align-items-center ">
+        <div class="col-5 col-lg-5 col-xl-7">
+          <div class="card">
+            <div class="card-body p-4 p-md-5">
+              <h2 style="text-align: center;">Loan Enquiry Form</h2>
+  
+              <form [formGroup]="enquiryForm">
+                
+  
+                  <div class="form-outline">
+                    <label class="form-label" for="firstName">First Name</label>
+                    <input type="text" id="firstName" class="form-control form-control-lg" formControlName="firstName"
+                      placeholder="Enter FirstName" />
+                  </div>
+                  
+                  <div class="form-outline">
+                    <label class="form-label" for="lastName">Last Name</label>
+                    <input type="text" id="lastName" class="form-control form-control-lg" formControlName="lastName"
+                      placeholder="Enter LastName" />
+                  </div>
+                    
+                      <div class="form-outline">
+                        <label class="form-label" for="age">Age</label>
+                        <input type="number" id="age" class="form-control form-control-lg" formControlName="age"
+                          placeholder="Enter Age" />
+                      </div>
+                    
+                      <div class="form-outline">
+                        <label class="form-label" for="email">Email Id</label>
+                        <input type="email" id="email" class="form-control form-control-lg" formControlName="email"
+                          placeholder="Enter Email Id" />
+                      </div>
+                   
+                      <div class="form-outline">
+                        <label class="form-label" for="email">Mobile No</label>
+                        <input type="number" id="email" class="form-control form-control-lg" formControlName="mobileNo"
+                          placeholder="Enter Mobile No" />
+                      </div>
+                    
+                      <div class="form-outline">
+                        <label class="form-label" for="firstName">Pan Card No</label>
+                        <input type="text" id="firstName" class="form-control form-control-lg"
+                          formControlName="panCardNo" placeholder="Enter Pancard No" />
+                      </div>
+                   
+                    <input class="btn btn-primary" type="submit" (click)="enquirySubmit()" value="Submit" />
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
